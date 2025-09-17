@@ -1,10 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 
 // As per guidelines, the API key MUST be provided via `process.env.API_KEY`.
-// The application will not function correctly without it.
-if (!process.env.API_KEY) {
-  throw new Error("Gemini API key is not configured. Please set the API_KEY environment variable.");
-}
+// The application will not function correctly without it. The check for the key's
+// presence is handled in the main App component to show a user-friendly message
+// instead of crashing the application at startup.
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 

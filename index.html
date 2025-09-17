@@ -27,12 +27,25 @@
   }
 }
 </script>
+<!-- Add Babel to transpile JSX/TSX in the browser -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
   <body>
     <div id="root"></div>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-database-compat.js"></script>
-    <script type="module" src="/index.tsx"></script>
+    
+    <!-- Polyfill to prevent crash in browser environments without a build step -->
+    <script>
+      window.process = {
+        env: {
+          API_KEY: ''
+        }
+      };
+    </script>
+    
+    <!-- Use text/babel type to get Babel to transpile this -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="index.tsx"></script>
   </body>
 </html>

@@ -1,29 +1,29 @@
-
 import { GoogleGenAI } from "@google/genai";
 
-const API_KEY = process.env.API_KEY;
-
-if (!API_KEY) {
-  throw new Error("API_KEY environment variable not set");
+// As per guidelines, the API key MUST be provided via `process.env.API_KEY`.
+// The application will not function correctly without it.
+if (!process.env.API_KEY) {
+  throw new Error("Gemini API key is not configured. Please set the API_KEY environment variable.");
 }
 
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-export const compareAnswers = async (question: string, answer1: string, answer2: string): Promise<boolean> => {
-  const prompt = `Question: "${question}"
-Answer 1: "${answer1}"
-Answer 2: "${answer2}"
-Are these two answers substantially similar or express the same core idea? Please answer with only the word "yes" or "no".`;
-
+/**
+ * A generic function to generate content using the Gemini API.
+ * This can be used for various in-game features.
+ * @param prompt The text prompt to send to the model.
+ * @returns The generated text content.
+ */
+export async function generateContent(prompt: string): Promise<string> {
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
+        model: 'gemini-2.5-flash',
+        contents: prompt,
     });
-    const textResponse = response.text.trim().toLowerCase();
-    return textResponse.includes('yes');
+    return response.text;
   } catch (error) {
-    console.error("Error comparing answers:", error);
-    return false;
+    console.error("Error calling Gemini API:", error);
+    // Provide a fallback or re-throw to be handled by the caller
+    throw new Error("Failed to generate content from Gemini API.");
   }
-};
+}

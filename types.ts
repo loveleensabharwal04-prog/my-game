@@ -11,8 +11,8 @@ export interface Player {
 
 export enum GameRound {
     ThisOrThat,
-    MindMeld,
-    DareOrTruth
+    HowWellDoYouKnowMe,
+    NitroRider
 }
 
 // State for each round
@@ -23,18 +23,23 @@ export interface ThisOrThatState {
     showResult: boolean;
 }
 
-export interface MindMeldState {
-    promptIndex: number;
-    answers: { [playerId: number]: string };
-    showResult: boolean;
+export interface HowWellDoYouKnowMeState {
+    turn: number; // 0-9
+    guess: string | null;
+    judgement: 'correct' | 'incorrect' | null;
+    phase: 'answering' | 'judging' | 'result';
 }
 
-export interface DareOrTruthState {
-    turn: number; // 0 or 1 to decide who chooses
-    choice: 'dare' | 'truth' | null;
-    content: string;
-    isLoading: boolean;
+export interface NitroRiderState {
+    status: 'intro' | 'playing' | 'round-end' | 'finished';
+    currentRace: number; // 1 to 3
+    wins: { [playerId: number]: number };
+    positions: { [playerId: number]: number }; // 0 to 100
+    heats: { [playerId: number]: number }; // 0 to 100
+    overheated: { [playerId: number]: boolean };
+    roundWinner: 0 | 1 | null;
 }
+
 
 // The main game object stored in Firebase
 export interface Game {
@@ -44,7 +49,7 @@ export interface Game {
     currentRound: GameRound;
     roundState: {
         thisOrThat: ThisOrThatState;
-        mindMeld: MindMeldState;
-        dareOrTruth: DareOrTruthState;
+        howWellDoYouKnowMe: HowWellDoYouKnowMeState;
+        nitroRider: NitroRiderState;
     }
 }

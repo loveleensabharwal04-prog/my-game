@@ -1,8 +1,8 @@
 import React from 'react';
 import { Game, GameRound } from '../types';
 import ThisOrThatRound from './rounds/ThisOrThatRound';
-import MindMeldRound from './rounds/FinishTheSentenceRound';
-import DareOrTruthRound from './rounds/DareOrTruthRound';
+import HowWellDoYouKnowMeRound from './rounds/FinishTheSentenceRound';
+import NitroRiderRound from './rounds/NitroRiderRound';
 import Scoreboard from './Scoreboard';
 import { updateGame } from '../services/gameService';
 
@@ -22,16 +22,16 @@ const GameScreen: React.FC<GameScreenProps> = ({ game, currentPlayerId }) => {
             currentPlayerId={currentPlayerId}
           />
         );
-      case GameRound.MindMeld:
+      case GameRound.HowWellDoYouKnowMe:
         return (
-          <MindMeldRound
+          <HowWellDoYouKnowMeRound
             game={game}
             currentPlayerId={currentPlayerId}
           />
         );
-      case GameRound.DareOrTruth:
+      case GameRound.NitroRider:
         return (
-            <DareOrTruthRound
+            <NitroRiderRound
                 game={game}
                 currentPlayerId={currentPlayerId}
             />

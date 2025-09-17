@@ -10,11 +10,12 @@ interface ThisOrThatRoundProps {
 }
 
 const questions = [
-  { option1: 'Coffee', option2: 'Tea' },
-  { option1: 'Mountains', option2: 'Beach' },
-  { option1: 'Movie Night In', option2: 'Night Out' },
-  { option1: 'Sweet', option2: 'Salty' },
+  { option1: 'Coffee', option2: 'Shakes' },
   { option1: 'Early Bird', option2: 'Night Owl' },
+  { option1: 'Paneer', option2: 'Dal Makhni' },
+  { option1: 'Sweet', option2: 'Spicy' },
+  { option1: 'Cafe Dates', option2: 'Exploring Places' },
+  { option1: 'Kisses', option2: 'Hugs' },
 ];
 const TOTAL_QUESTIONS_PER_PLAYER = questions.length;
 const TOTAL_TURNS = TOTAL_QUESTIONS_PER_PLAYER * 2;
@@ -60,8 +61,7 @@ const ThisOrThatRound: React.FC<ThisOrThatRoundProps> = ({ game, currentPlayerId
     if (currentPlayerId !== 0) return;
 
     if (turn + 1 >= TOTAL_TURNS) {
-      // FIX: Corrected the next round to GameRound.MindMeld, as GameRound.FinishTheSentence does not exist.
-      updateGame(game.id, { currentRound: GameRound.MindMeld });
+      updateGame(game.id, { currentRound: GameRound.HowWellDoYouKnowMe });
     } else {
       updateGame(game.id, { 
           'roundState/thisOrThat/turn': turn + 1,

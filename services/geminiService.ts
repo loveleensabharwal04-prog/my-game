@@ -27,31 +27,3 @@ Are these two answers substantially similar or express the same core idea? Pleas
     return false;
   }
 };
-
-export const generateDare = async (): Promise<string> => {
-  const prompt = `Generate a fun, romantic, and safe-for-work dare for a couple playing a game. The dare should be something they can do right now, wherever they are. Be creative and keep it lighthearted.`;
-  try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-    });
-    return response.text;
-  } catch (error) {
-    console.error("Error generating dare:", error);
-    return "Give your partner a heartfelt 1-minute compliment without stopping.";
-  }
-};
-
-export const generateTruth = async (): Promise<string> => {
-  const prompt = `Generate a thoughtful, deep, and romantic "truth" question for a couple playing a game. The question should spark meaningful conversation and help them get to know each other on a deeper level.`;
-  try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
-      contents: prompt,
-    });
-    return response.text;
-  } catch (error) {
-    console.error("Error generating truth:", error);
-    return "What's one small thing your partner does that always makes you smile?";
-  }
-};

@@ -23,8 +23,16 @@ export const createGame = async (player1Name: string): Promise<{ gameId: string,
         currentRound: GameRound.ThisOrThat,
         roundState: {
             thisOrThat: { turn: 0, answer: null, guess: null, showResult: false },
-            mindMeld: { promptIndex: 0, answers: {}, showResult: false },
-            dareOrTruth: { turn: 0, choice: null, content: '', isLoading: false }
+            howWellDoYouKnowMe: { turn: 0, guess: null, judgement: null, phase: 'answering' },
+            nitroRider: { 
+                status: 'intro', 
+                currentRace: 1,
+                wins: { 0: 0, 1: 0 },
+                positions: { 0: 0, 1: 0 }, 
+                heats: { 0: 0, 1: 0},
+                overheated: { 0: false, 1: false},
+                roundWinner: null
+            },
         }
     };
     

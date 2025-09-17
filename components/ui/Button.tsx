@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSound } from '../../contexts/SoundContext';
+import { useSound } from '../../contexts/SoundContext.tsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Game, GameRound } from '../../types';
-import Button from '../ui/Button';
-import { updateGame } from '../../services/gameService';
-import Input from '../ui/Input';
-import { useSound } from '../../contexts/SoundContext';
+import { Game, GameRound } from '../../types.ts';
+import Button from '../ui/Button.tsx';
+import { updateGame } from '../../services/gameService.ts';
+import Input from '../ui/Input.tsx';
+import { useSound } from '../../contexts/SoundContext.tsx';
 
 interface HowWellDoYouKnowMeRoundProps {
     game: Game;

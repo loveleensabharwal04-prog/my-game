@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Button from './ui/Button';
-import Input from './ui/Input';
-import Card from './ui/Card';
-import { createGame, joinGame } from '../services/gameService';
+import Button from './ui/Button.tsx';
+import Input from './ui/Input.tsx';
+import Card from './ui/Card.tsx';
+import { createGame, joinGame } from '../services/gameService.ts';
 
 interface LobbyScreenProps {
   onJoinGame: (gameId: string, playerId: number) => void;

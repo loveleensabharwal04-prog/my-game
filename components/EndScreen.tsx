@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { Player } from '../types';
-import Button from './ui/Button';
-import Card from './ui/Card';
-import { useSound } from '../contexts/SoundContext';
+import { Player } from '../types.ts';
+import Button from './ui/Button.tsx';
+import Card from './ui/Card.tsx';
+import { useSound } from '../contexts/SoundContext.tsx';
 
 interface EndScreenProps {
   players: [Player, Player];

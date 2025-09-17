@@ -1,5 +1,5 @@
-import { db } from './firebase';
-import { Game, GameState, GameRound, Player } from '../types';
+import { db } from './firebase.ts';
+import { Game, GameState, GameRound, Player } from '../types.ts';
 
 // Helper to generate a random 4-letter ID
 const generateGameId = (): string => {

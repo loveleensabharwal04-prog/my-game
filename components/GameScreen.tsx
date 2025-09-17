@@ -1,10 +1,10 @@
 import React from 'react';
-import { Game, GameRound } from '../types';
-import ThisOrThatRound from './rounds/ThisOrThatRound';
-import HowWellDoYouKnowMeRound from './rounds/FinishTheSentenceRound';
-import NitroRiderRound from './rounds/NitroRiderRound';
-import Scoreboard from './Scoreboard';
-import { updateGame } from '../services/gameService';
+import { Game, GameRound } from '../types.ts';
+import ThisOrThatRound from './rounds/ThisOrThatRound.tsx';
+import HowWellDoYouKnowMeRound from './rounds/FinishTheSentenceRound.tsx';
+import NitroRiderRound from './rounds/NitroRiderRound.tsx';
+import Scoreboard from './Scoreboard.tsx';
+import { updateGame } from '../services/gameService.ts';
 
 interface GameScreenProps {
   game: Game;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Game, GameState } from './types';
-import { onGameUpdate } from './services/gameService';
-import LobbyScreen from './components/LobbyScreen';
-import GameScreen from './components/GameScreen';
-import EndScreen from './components/EndScreen';
-import Card from './components/ui/Card';
+import { Game, GameState } from './types.ts';
+import { onGameUpdate } from './services/gameService.ts';
+import LobbyScreen from './components/LobbyScreen.tsx';
+import GameScreen from './components/GameScreen.tsx';
+import EndScreen from './components/EndScreen.tsx';
+import Card from './components/ui/Card.tsx';
 
 // A simple component for the waiting screen, defined here to avoid creating new files.
 const WaitingForPlayerScreen: React.FC<{ gameId: string }> = ({ gameId }) => (

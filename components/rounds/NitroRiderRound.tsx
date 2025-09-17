@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Game, GameState } from '../../types';
-import { updateGame } from '../../services/gameService';
-import Button from '../ui/Button';
-import { useSound } from '../../contexts/SoundContext';
+import { Game, GameState } from '../../types.ts';
+import { updateGame } from '../../services/gameService.ts';
+import Button from '../ui/Button.tsx';
+import { useSound } from '../../contexts/SoundContext.tsx';
 
 interface NitroRiderRoundProps {
     game: Game;

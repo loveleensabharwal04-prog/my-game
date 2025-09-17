@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import { Game, GameRound, GameState } from '../../types';
-import Button from '../ui/Button';
-import { updateGame } from '../../services/gameService';
-import { useSound } from '../../contexts/SoundContext';
+import { Game, GameRound, GameState } from '../../types.ts';
+import Button from '../ui/Button.tsx';
+import { updateGame } from '../../services/gameService.ts';
+import { useSound } from '../../contexts/SoundContext.tsx';
 
 interface ThisOrThatRoundProps {
   game: Game;

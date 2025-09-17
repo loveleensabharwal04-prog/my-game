@@ -68,7 +68,7 @@ const HowWellDoYouKnowMeRound: React.FC<HowWellDoYouKnowMeRoundProps> = ({ game,
         if (currentPlayerId !== 0) return; // Only player 0 can advance
 
         if (turn + 1 >= TOTAL_TURNS) {
-            updateGame(game.id, { currentRound: GameRound.NitroRider });
+            updateGame(game.id, { currentRound: GameRound.PixelJumper });
         } else {
             setMyGuess('');
             updateGame(game.id, {

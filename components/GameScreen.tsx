@@ -2,7 +2,7 @@ import React from 'react';
 import { Game, GameRound } from '../types.ts';
 import ThisOrThatRound from './rounds/ThisOrThatRound.tsx';
 import HowWellDoYouKnowMeRound from './rounds/FinishTheSentenceRound.tsx';
-import NitroRiderRound from './rounds/NitroRiderRound.tsx';
+import PixelJumperRound from './rounds/NitroRiderRound.tsx';
 import Scoreboard from './Scoreboard.tsx';
 import { updateGame } from '../services/gameService.ts';
 
@@ -29,9 +29,9 @@ const GameScreen: React.FC<GameScreenProps> = ({ game, currentPlayerId }) => {
             currentPlayerId={currentPlayerId}
           />
         );
-      case GameRound.NitroRider:
+      case GameRound.PixelJumper:
         return (
-            <NitroRiderRound
+            <PixelJumperRound
                 game={game}
                 currentPlayerId={currentPlayerId}
             />

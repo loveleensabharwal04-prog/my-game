@@ -12,7 +12,7 @@ export interface Player {
 export enum GameRound {
     ThisOrThat,
     HowWellDoYouKnowMe,
-    NitroRider
+    PixelJumper
 }
 
 // State for each round
@@ -30,13 +30,24 @@ export interface HowWellDoYouKnowMeState {
     phase: 'answering' | 'judging' | 'result';
 }
 
-export interface NitroRiderState {
+export interface PlayerPhysicsState {
+    y: number; // Vertical position from the ground
+    isAlive: boolean;
+}
+
+export interface Obstacle {
+    x: number; // position along the track
+    height: number;
+}
+
+export interface PixelJumperState {
     status: 'intro' | 'playing' | 'round-end' | 'finished';
     currentRace: number; // 1 to 3
     wins: { [playerId: number]: number };
-    positions: { [playerId: number]: number }; // 0 to 100
-    heats: { [playerId: number]: number }; // 0 to 100
-    overheated: { [playerId: number]: boolean };
+    lives: { [playerId: number]: number };
+    playerStates: { [playerId: number]: PlayerPhysicsState };
+    distance: number;
+    obstacles: Obstacle[];
     roundWinner: 0 | 1 | null;
 }
 
@@ -50,6 +61,6 @@ export interface Game {
     roundState: {
         thisOrThat: ThisOrThatState;
         howWellDoYouKnowMe: HowWellDoYouKnowMeState;
-        nitroRider: NitroRiderState;
+        pixelJumper: PixelJumperState;
     }
 }

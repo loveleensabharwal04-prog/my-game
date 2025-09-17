@@ -24,13 +24,17 @@ export const createGame = async (player1Name: string): Promise<{ gameId: string,
         roundState: {
             thisOrThat: { turn: 0, answer: null, guess: null, showResult: false },
             howWellDoYouKnowMe: { turn: 0, guess: null, judgement: null, phase: 'answering' },
-            nitroRider: { 
+            pixelJumper: { 
                 status: 'intro', 
                 currentRace: 1,
                 wins: { 0: 0, 1: 0 },
-                positions: { 0: 0, 1: 0 }, 
-                heats: { 0: 0, 1: 0},
-                overheated: { 0: false, 1: false},
+                lives: { 0: 3, 1: 3 },
+                playerStates: { 
+                    0: { y: 0, isAlive: true }, 
+                    1: { y: 0, isAlive: true }
+                },
+                distance: 0,
+                obstacles: [],
                 roundWinner: null
             },
         }
